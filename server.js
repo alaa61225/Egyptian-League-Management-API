@@ -1,10 +1,11 @@
-console.log("👉 Server file started...");
+console.log(" Server file started...");
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose"); 
 
 const teamRoutes = require("./routes/teamRoutes");
 const matchRoutes = require("./routes/matchRoutes");
+const authRoutes = require("./routes/authRoutes"); 
 
 const app = express();
 
@@ -24,11 +25,11 @@ const connectToDb = async () => {
   }
 };
 
-
 connectToDb().then(() => {
   // Routes
   app.use("/teams", teamRoutes);
   app.use("/matches", matchRoutes);
+  app.use("/auth", authRoutes); 
 
   // Run server
   const PORT = 3000;
