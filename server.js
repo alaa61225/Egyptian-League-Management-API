@@ -24,6 +24,8 @@ const connectToDb = async () => {
     console.log("Error connecting to database:", error);
   }
 };
+////
+app.use("/uploads", express.static("uploads"));
 
 connectToDb().then(() => {
   // Routes
